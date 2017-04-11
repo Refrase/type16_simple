@@ -1,4 +1,4 @@
-# koreklar_prototypes
+# type16.com (simple site)
 
 1. Download
 2. Run "npm install" in Terminal
