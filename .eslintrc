@@ -1,0 +1,11 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "max-len": 0,
+    "spaced-comment": 0,
+    "no-nested-ternary": 0,
+    "space-in-parens": 0,
+    "padded-blocks": 0,
+    "no-unused-vars": [2, {"args": "after-used", "argsIgnorePattern": "^_"}],
+  }
+}

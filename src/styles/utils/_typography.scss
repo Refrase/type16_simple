@@ -1,0 +1,21 @@
+h1, h2, h3, h4, h5, h6, p, a, li, button {
+  font-family: $fontFamily-sans;
+  color: $color-base;
+}
+
+p {
+  font-size: $fontSize-copy;
+  line-height: 1.5;
+  color: $color-base;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 200ms ease-out;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

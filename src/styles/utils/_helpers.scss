@@ -1,0 +1,147 @@
+$positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clean .padding/.margin (all sides) option
+
+@each $position in $positions {
+	.padding#{$position}-8-1 { padding#{$position}: $scale-8-1 !important; }
+	.padding#{$position}-7-1 { padding#{$position}: $scale-7-1 !important; }
+	.padding#{$position}-6-1 { padding#{$position}: $scale-6-1 !important; }
+	.padding#{$position}-5-1 { padding#{$position}: $scale-5-1 !important; }
+	.padding#{$position}-4-1 { padding#{$position}: $scale-4-1 !important; }
+	.padding#{$position}-3-1 { padding#{$position}: $scale-3-1 !important; }
+	.padding#{$position}-2-1 { padding#{$position}: $scale-2-1 !important; }
+	.padding#{$position} 	   { padding#{$position}: $scale !important; }
+	.padding#{$position}-1-2 { padding#{$position}: $scale-1-2 !important; }
+	.padding#{$position}-1-3 { padding#{$position}: $scale-1-3 !important; }
+	.padding#{$position}-1-4 { padding#{$position}: $scale-1-4 !important; }
+	.padding#{$position}-1-5 { padding#{$position}: $scale-1-5 !important; }
+	.padding#{$position}-1-6 { padding#{$position}: $scale-1-6 !important; }
+	.padding#{$position}-1-7 { padding#{$position}: $scale-1-7 !important; }
+	.padding#{$position}-1-8 { padding#{$position}: $scale-1-8 !important; }}
+
+.padding-none { padding: 0 !important;
+	&-top 	    { padding-top: 0 !important; }
+	&-bottom    { padding-bottom: 0 !important; }}
+
+@each $position in $positions {
+	.margin#{$position}-8-1  { margin#{$position}: $scale-8-1 !important; }
+	.margin#{$position}-7-1  { margin#{$position}: $scale-7-1 !important; }
+	.margin#{$position}-6-1  { margin#{$position}: $scale-6-1 !important; }
+	.margin#{$position}-5-1  { margin#{$position}: $scale-5-1 !important; }
+	.margin#{$position}-4-1  { margin#{$position}: $scale-4-1 !important; }
+	.margin#{$position}-3-1  { margin#{$position}: $scale-3-1 !important; }
+	.margin#{$position}-2-1  { margin#{$position}: $scale-2-1 !important; }
+	.margin#{$position} 		 { margin#{$position}: $scale !important; }
+	.margin#{$position}-1-2  { margin#{$position}: $scale-1-2 !important; }
+	.margin#{$position}-1-3  { margin#{$position}: $scale-1-3 !important; }
+	.margin#{$position}-1-4  { margin#{$position}: $scale-1-4 !important; }
+	.margin#{$position}-1-5  { margin#{$position}: $scale-1-5 !important; }
+	.margin#{$position}-1-6  { margin#{$position}: $scale-1-6 !important; }
+	.margin#{$position}-1-7  { margin#{$position}: $scale-1-7 !important; }
+	.margin#{$position}-1-8  { margin#{$position}: $scale-1-8 !important; }}
+
+.margin-none  { margin: 0 !important;
+	&-top 	    { margin-top: 0 !important; }
+	&-bottom    { margin-bottom: 0 !important; }
+	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; }}}
+
+.font {
+	&Size {
+		&-xxxlarge { font-size: $fontSize-xxxlarge; }
+		&-xxlarge { font-size: $fontSize-xxlarge; }
+		&-xlarge { font-size: $fontSize-xlarge; }
+		&-large { font-size: $fontSize-large; }
+		&-base { font-size: $fontSize-base; }
+		&-small { font-size: $fontSize-small; }
+		&-xsmall { font-size: $fontSize-xsmall; }
+		&-xxsmall { font-size: $fontSize-xxsmall; }}
+	&Family {
+		&-system { font-family: $fontFamily-system !important; }}}
+
+.color {
+  &-primary { color: $color-primary; }
+	&-base { color: $color-base;
+		&-lighter {
+		  &-1 { color: $color-base-lighter-1; }
+			&-2 { color: $color-base-lighter-2; }
+			&-3 { color: $color-base-lighter-3; }
+			&-4 { color: $color-base-lighter-4; }}}}
+
+.display {
+	&-flex { display: flex; }
+	&-inlineBlock { display: inline-block; }}
+
+.justifyContent {
+	&-center { justify-content: center; }}
+
+.alignItems {
+	&-center { align-items: center; }}
+
+.flex {
+	&Wrap { flex-wrap: wrap; }
+}
+
+.width		{
+	&-full  { width: 100% }
+	&-fill  { // Counter spacing the grid for covering margins defined by grid. ATT! Depending on grid side paddings as they are
+		&-right	{
+			@include breakpoint( 'desktop' ){
+				width: calc( 100% + #{$scale-2-1} + #{$scale-4-1} );
+			}
+			@include breakpoint( 'tablet' ) {
+				width: calc( 100% + #{$scale-8-1} );
+				margin-left: -$scale-4-1;
+				margin-right: 0;
+			}
+			@include breakpoint( 'widescreen' ){
+				width: calc( 100% + #{$scale-2-1} + #{$scale-8-1} );
+			}
+			@include breakpoint( 'extraWidescreen' ) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.height {
+	&-full { height: 100%; }}
+
+.background {
+	&Color {
+		&-white { background-color: white; }
+		&-primary { background-color: $color-primary; }
+		&-base { background-color: $color-base;
+			&-lighter { background-color: $color-base-lighter-7; }}}
+	&-pattern {
+		width: 100vw;
+		height: 100vh;
+		background-image: url('assets/illu_streger.svg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 0 150px;
+
+		&-white { background-image: url('assets/illu_streger_hvid.svg'); }
+	}
+	&-full {
+		&::before {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 200vw;
+			background-color: inherit;
+			top: 0;
+			left: -100%;
+			z-index: -1;
+		}
+	}
+}
+
+.list {
+	&-unstyled { list-style: none; }}
+
+.position {
+	&-relative { position: relative; }
+	&-absolute { position: absolute; }}
+
+// Triggering scroll on y-axis, when controlBar is visible
+.visibleControlBar {
+	padding-bottom: 124px !important; // 124 = max-height of controlBar at this time
+}
