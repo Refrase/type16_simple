@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 				tasks: [ 'sass:dev' ] // Concatenate styles on change, but don't minify while developing (see options under 'sass' ^)
 			},
       livereload: {
-        files: [ '*.html', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}' ]
+        files: [ '*.html', 'dist/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}' ]
       }
 		},
 

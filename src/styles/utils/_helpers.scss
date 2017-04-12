@@ -45,6 +45,11 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .font {
 	&Size {
+		&-display {
+			font-size: $fontSize-display;
+			@include breakpoint('tablet') { font-size: $fontSize-xxxlarge; }
+			@include breakpoint('mobile') { font-size: $fontSize-xxlarge; }
+		}
 		&-xxxlarge { font-size: $fontSize-xxxlarge; }
 		&-xxlarge { font-size: $fontSize-xxlarge; }
 		&-xlarge { font-size: $fontSize-xlarge; }
@@ -54,7 +59,16 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		&-xsmall { font-size: $fontSize-xsmall; }
 		&-xxsmall { font-size: $fontSize-xxsmall; }}
 	&Family {
-		&-system { font-family: $fontFamily-system !important; }}}
+		&-system { font-family: $fontFamily-system !important; }}
+	&Weight {
+		&-normal { font-weight: 400; }
+		&-bold { font-weight: 600; }}}
+
+.text {
+	&Align {
+		&-center { text-align: center; }
+	}
+}
 
 .color {
   &-primary { color: $color-primary; }
@@ -70,7 +84,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-inlineBlock { display: inline-block; }}
 
 .justifyContent {
-	&-center { justify-content: center; }}
+	&-center { justify-content: center; }
+	&-spaceBetween { justify-content: space-between; }}
 
 .alignItems {
 	&-center { align-items: center; }}
@@ -134,14 +149,21 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	}
 }
 
+.z-index-minus { z-index: -1; }
+
+.link {
+	&-project {
+		img {
+			opacity: 1;
+			transition: opacity 200ms ease-out;
+			&:hover { opacity: 0.1; }
+		}
+	}
+}
+
 .list {
 	&-unstyled { list-style: none; }}
 
 .position {
 	&-relative { position: relative; }
 	&-absolute { position: absolute; }}
-
-// Triggering scroll on y-axis, when controlBar is visible
-.visibleControlBar {
-	padding-bottom: 124px !important; // 124 = max-height of controlBar at this time
-}

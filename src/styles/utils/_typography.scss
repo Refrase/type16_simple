@@ -1,9 +1,9 @@
 h1, h2, h3, h4, h5, h6, p, a, li, button {
-  font-family: $fontFamily-sans;
+  font-family: $fontFamily-brand;
   color: $color-base;
 }
 
-p {
+p, li {
   font-size: $fontSize-copy;
   line-height: 1.5;
   color: $color-base;
@@ -11,6 +11,7 @@ p {
 
 a {
   color: $color-primary;
+  font-size: $fontSize-copy;
   text-decoration: none;
   display: inline-block;
   transition: opacity 200ms ease-out;

@@ -1,7 +1,7 @@
 .gridBlock {
   display: flex;
   flex-wrap: wrap;
-  padding: $scale-6-1 0;
+  padding: $scale-4-1 0;
   margin: $scale auto;
 
   &-noPadding {
@@ -15,9 +15,9 @@
   & > * { padding: 0 $scale-2-1; }
 
   // Content-widths
-  @include breakpoint( 'desktop' )         { width: 100%; padding: $scale-6-1 $scale-4-1; }
+  @include breakpoint( 'desktop' )         { width: 100%; padding: $scale-3-1 $scale-4-1; }
   @include breakpoint( 'tablet' )          { width: 100%; padding: $scale-2-1; }
-  @include breakpoint( 'widescreen' )      { width: 100%; padding: $scale-6-1 $scale-8-1; }
+  @include breakpoint( 'widescreen' )      { width: 100%; padding: $scale-4-1 $scale-6-1; }
   @include breakpoint( 'extraWidescreen' ) { width: $contentWidth-extraWidescreen; }
 }
 
