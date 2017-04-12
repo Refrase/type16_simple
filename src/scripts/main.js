@@ -1,7 +1,12 @@
-const y = 2;
+const projectIntro = document.getElementById('projectIntro')
 
-const x = (arg) => {
-  return arg + 1;
+if ( projectIntro ) {
+  window.addEventListener( 'scroll', () => {
+    console.log(document.body.scrollTop);
+    if ( document.body.scrollTop > 200 ) {
+      projectIntro.className = "fadeOut";
+    } else {
+      projectIntro.className = "visible";
+    }
+  })
 }
-
-console.log(x(y));
