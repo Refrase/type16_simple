@@ -41,7 +41,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .margin-none  { margin: 0 !important;
 	&-top 	    { margin-top: 0 !important; }
 	&-bottom    { margin-bottom: 0 !important; }
-	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; }}}
+	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; } }
+	&-aboveTablet { @include breakpoint('tabletAbove') { margin: 0 !important; }} }
 
 .font {
 	&Size {
@@ -59,6 +60,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		&-xsmall { font-size: $fontSize-xsmall; }
 		&-xxsmall { font-size: $fontSize-xxsmall; }}
 	&Family {
+		&-sans { font-family: $fontFamily-sans !important; }
 		&-system { font-family: $fontFamily-system !important; }}
 	&Weight {
 		&-normal { font-weight: 400; }
@@ -66,7 +68,11 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .text {
 	&Align {
-		&-center { text-align: center; }
+		&-center { text-align: center;
+			&-aboveTablet { text-align: center;
+				@include breakpoint( 'tablet' ) { text-align: left; }
+			}
+		}
 	}
 }
 
@@ -81,17 +87,27 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .display {
 	&-flex { display: flex; }
-	&-inlineBlock { display: inline-block; }}
+	&-inlineBlock { display: inline-block; }
+	&-none { display: none;
+		&-mobile { @include breakpoint( 'mobile' ) { display: none; }}
+		&-tablet { @include breakpoint( 'tablet' ) { display: none; }}}}
 
 .justifyContent {
 	&-center { justify-content: center; }
-	&-spaceBetween { justify-content: space-between; }}
+	&-spaceBetween { justify-content: space-between; }
+	&-spaceAround { justify-content: space-around; }
+	&-flexEnd { justify-content: flex-end; }}
 
 .alignItems {
-	&-center { align-items: center; }}
+	&-center { align-items: center; }
+	&-flexStart { align-items: flex-start; }
+	&-flexEnd { align-items: flex-end; }}
 
 .flex {
 	&Wrap { flex-wrap: wrap; }
+	&Direction {
+		&-column { flex-direction: column; }
+	}
 }
 
 .width		{
@@ -156,7 +172,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		img {
 			opacity: 1;
 			transition: opacity 200ms ease-out;
-			&:hover { opacity: 0.1; }
+			&:hover { opacity: 0.03; }
 		}
 	}
 }

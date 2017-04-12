@@ -7,7 +7,7 @@
   &-noPadding {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    @include breakpoint( 'tablet' )        { padding: 0 $scale-2-1 !important; }
+    @include breakpoint( 'tablet' )        { padding: 0 $scale !important; }
   }
 
   &-noWrap { flex-wrap: nowrap !important; }
@@ -16,7 +16,7 @@
 
   // Content-widths
   @include breakpoint( 'desktop' )         { width: 100%; padding: $scale-3-1 $scale-4-1; }
-  @include breakpoint( 'tablet' )          { width: 100%; padding: $scale-2-1; }
+  @include breakpoint( 'tablet' )          { width: 100%; padding: $scale; }
   @include breakpoint( 'widescreen' )      { width: 100%; padding: $scale-4-1 $scale-6-1; }
   @include breakpoint( 'extraWidescreen' ) { width: $contentWidth-extraWidescreen; }
 }
