@@ -42,7 +42,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-top 	    { margin-top: 0 !important; }
 	&-bottom    { margin-bottom: 0 !important; }
 	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; } }
-	&-aboveTablet { @include breakpoint('tabletAbove') { margin: 0 !important; }} }
+	&-aboveTablet { @include breakpoint('tabletAbove') { margin: 0 !important; }}
+	&-aboveMobile { @include breakpoint('mobileAbove') { margin: 0 !important; }} }
 
 .font {
 	&Size {
@@ -77,6 +78,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 }
 
 .color {
+	&-white { color: white; }
   &-primary { color: $color-primary; }
 	&-base { color: $color-base;
 		&-lighter {
@@ -167,16 +169,6 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .z-index-minus { z-index: -1; }
 
-.link {
-	&-project {
-		img {
-			opacity: 1;
-			transition: opacity 200ms ease-out;
-			&:hover { opacity: 0.03; }
-		}
-	}
-}
-
 .list {
 	&-unstyled { list-style: none; }}
 
@@ -185,6 +177,10 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-absolute { position: absolute; }}
 
 .visible { opacity: 1; }
+
+.overflow {
+	&-hidden { overflow: hidden; }
+}
 
 // Animation
 @keyframes fadeOut {

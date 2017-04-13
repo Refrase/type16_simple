@@ -1,0 +1,42 @@
+@keyframes flight {
+  0%   { transform: translate3d(0,50px,0) rotate(-10deg); opacity: 1; }
+  100% { transform: translate3d(150vw,-200px,0) rotate(10deg); opacity: 1 }
+}
+
+@keyframes flight-tablet {
+  0%   { transform: translate3d(0,50px,0) rotate(-10deg); opacity: 1; }
+  100% { transform: translate3d(150vw,-100px,0) rotate(0deg); opacity: 1; }
+}
+
+@keyframes flight-mobile {
+  0%   { transform: translate3d(0,50px,0) rotate(-10deg); opacity: 1; }
+  100% { transform: translate3d(150vw,-100px,0) rotate(-10deg); opacity: 1; }
+}
+
+.footer {
+
+  &_contact {
+    position: relative;
+    border-top: 1px solid $color-base-lighter-7;
+
+    &:hover {
+
+      .footer_plane {
+        animation: flight;
+        animation-timing-function: cubic-bezier(0.25,0.35,0.6,0.95);
+        animation-duration: 2000ms;
+        @include breakpoint( 'tablet' ) { animation: flight-tablet; animation-duration: 2000ms; }
+        @include breakpoint( 'mobile' ) { animation: flight-mobile; animation-duration: 2000ms; }
+      }
+    }
+  }
+
+  &_plane {
+    opacity: 0;
+    position: absolute;
+    top: calc( 50% - 20px );
+    left: -200px;
+    z-index: -1;
+  }
+
+}

@@ -32,6 +32,10 @@ html, body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 html {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -684,6 +688,12 @@ html {
   }
 }
 
+@media (min-width: 480px) {
+  .margin-none-aboveMobile {
+    margin: 0 !important;
+  }
+}
+
 .fontSize-display {
   font-size: 56px;
 }
@@ -760,6 +770,10 @@ html {
   .textAlign-center-aboveTablet {
     text-align: left;
   }
+}
+
+.color-white {
+  color: white;
 }
 
 .color-primary {
@@ -924,15 +938,6 @@ html {
   z-index: -1;
 }
 
-.link-project img {
-  opacity: 1;
-  transition: opacity 200ms ease-out;
-}
-
-.link-project img:hover {
-  opacity: 0.03;
-}
-
 .list-unstyled {
   list-style: none;
 }
@@ -947,6 +952,10 @@ html {
 
 .visible {
   opacity: 1;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 @keyframes fadeOut {
@@ -4411,4 +4420,184 @@ a:hover {
 
 .header a:hover, .header a.active {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .header a img {
+    width: 50px;
+    margin-top: 4px;
+  }
+}
+
+.project_meta {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.project img {
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+}
+
+.project:hover img {
+  opacity: 0.03;
+}
+
+.project:hover .project_meta {
+  opacity: 1;
+}
+
+.heroIllustration_wrap {
+  position: absolute;
+  top: -80px;
+  left: -10px;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  transform: rotate(30deg);
+}
+
+@keyframes drawStroke {
+  0% {
+    transform: translate3d(-50%, -50%, 0);
+    stroke-dashoffset: 55000;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0);
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(0deg);
+  }
+  12% {
+    transform: translate3d(-50%, -50%, 0) rotateX(-20deg) rotateY(0deg);
+  }
+  25% {
+    transform: translate3d(-50%, -50%, 0) rotateX(-20deg) rotateY(-20deg);
+  }
+  37% {
+    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(-20deg);
+  }
+  50% {
+    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(0deg);
+  }
+  62% {
+    transform: translate3d(-50%, -50%, 0) rotateX(20deg) rotateY(0deg);
+  }
+  75% {
+    transform: translate3d(-50%, -50%, 0) rotateX(20deg) rotateY(20deg);
+  }
+  87% {
+    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(20deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+@keyframes strokeColorChange {
+  0% {
+    stroke: red;
+  }
+  50% {
+    stroke: blue;
+  }
+  100% {
+    stroke: red;
+  }
+}
+
+.heroIllustration {
+  position: absolute;
+  width: 2200px;
+  fill: none;
+  stroke: #e1e1e1;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+  stroke-width: 1px;
+  stroke-dasharray: 55000;
+  stroke-dashoffset: 55000;
+  left: 50%;
+  top: 50%;
+  backface-visibility: hidden;
+  perspective: 1000;
+  animation: drawStroke 250s infinite alternate, rotate3d 80s infinite alternate;
+}
+
+@keyframes flight {
+  0% {
+    transform: translate3d(0, 50px, 0) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(150vw, -200px, 0) rotate(10deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flight-tablet {
+  0% {
+    transform: translate3d(0, 50px, 0) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(150vw, -100px, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flight-mobile {
+  0% {
+    transform: translate3d(0, 50px, 0) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(150vw, -100px, 0) rotate(-10deg);
+    opacity: 1;
+  }
+}
+
+.footer_contact {
+  position: relative;
+  border-top: 1px solid #f1f1f1;
+}
+
+.footer_contact:hover .footer_plane {
+  animation: flight;
+  animation-timing-function: cubic-bezier(0.25, 0.35, 0.6, 0.95);
+  animation-duration: 2000ms;
+}
+
+@media (max-width: 767px) {
+  .footer_contact:hover .footer_plane {
+    animation: flight-tablet;
+    animation-duration: 2000ms;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer_contact:hover .footer_plane {
+    animation: flight-mobile;
+    animation-duration: 2000ms;
+  }
+}
+
+.footer_plane {
+  opacity: 0;
+  position: absolute;
+  top: calc( 50% - 20px);
+  left: -200px;
+  z-index: -1;
 }

@@ -10,6 +10,13 @@
 
     &:hover,
     &.active { opacity: 1; }
+
+    img {
+      @include breakpoint( 'tablet' ) {
+        width: 50px;
+        margin-top: 4px;
+      }
+    }
   }
 
 }
