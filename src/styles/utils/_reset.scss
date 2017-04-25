@@ -35,7 +35,8 @@ html, body {
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 //	http://www.paulirish.com/2012/box-sizing-border-box-ftw/

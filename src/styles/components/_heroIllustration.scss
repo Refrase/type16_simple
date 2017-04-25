@@ -1,10 +1,19 @@
+.heroIllustration_crop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
 .heroIllustration_wrap {
   position: absolute;
   top: -80px;
   left: -10px;
   width: 100%;
   height: 100vh;
-  z-index: -1;
   transform: rotate(30deg);
 }
 
