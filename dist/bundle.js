@@ -5,12 +5,14 @@ var projectIntro = document.getElementById('projectIntro');
 
 if (projectIntro) {
   window.addEventListener('scroll', function () {
-    console.log(document.body.scrollTop);
-    if (document.body.scrollTop > 200) {
-      projectIntro.className = "fadeOut";
-    } else {
-      projectIntro.className = "visible";
-    }
+    var scrollTop = window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    window.setTimeout(function () {
+      if (scrollTop > 200) {
+        projectIntro.className = "fadeOut";
+      } else {
+        projectIntro.className = "visible";
+      }
+    }, 100);
   });
 }
 
