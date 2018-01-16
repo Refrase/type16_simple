@@ -4630,6 +4630,10 @@ a:hover {
   z-index: -1;
 }
 
+.explainer {
+  line-height: 1.5;
+}
+
 @media (min-width: 1025px) {
   .explainer {
     display: block;
