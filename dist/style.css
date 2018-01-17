@@ -365,6 +365,14 @@ html {
   padding-bottom: 0 !important;
 }
 
+.padding-none-left {
+  padding-left: 0 !important;
+}
+
+.padding-none-right {
+  padding-right: 0 !important;
+}
+
 .margin-top-8-1 {
   margin-top: 128px !important;
 }
@@ -757,6 +765,34 @@ html {
 
 .fontWeight-bold {
   font-weight: 600;
+}
+
+.textAlign-left {
+  text-align: left;
+}
+
+.textAlign-left-aboveTablet {
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .textAlign-left-aboveTablet {
+    text-align: center;
+  }
+}
+
+.textAlign-right {
+  text-align: right;
+}
+
+.textAlign-right-aboveTablet {
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .textAlign-right-aboveTablet {
+    text-align: center;
+  }
 }
 
 .textAlign-center {

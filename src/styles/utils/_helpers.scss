@@ -19,7 +19,9 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .padding-none { padding: 0 !important;
 	&-top 	    { padding-top: 0 !important; }
-	&-bottom    { padding-bottom: 0 !important; }}
+	&-bottom    { padding-bottom: 0 !important; }
+	&-left    	{ padding-left: 0 !important; }
+	&-right    	{ padding-right: 0 !important; }}
 
 @each $position in $positions {
 	.margin#{$position}-8-1  { margin#{$position}: $scale-8-1 !important; }
@@ -69,11 +71,22 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .text {
 	&Align {
+		&-left { text-align: left;
+			&-aboveTablet { text-align: left;
+				@include breakpoint( 'tablet' ) { text-align: center; }
+			}
+		}
+		&-right { text-align: right;
+			&-aboveTablet { text-align: right;
+				@include breakpoint( 'tablet' ) { text-align: center; }
+			}
+		}
 		&-center { text-align: center;
 			&-aboveTablet { text-align: center;
 				@include breakpoint( 'tablet' ) { text-align: left; }
 			}
 		}
+
 	}
 }
 
