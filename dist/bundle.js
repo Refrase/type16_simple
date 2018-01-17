@@ -16,4 +16,13 @@ if (projectIntro) {
   });
 }
 
+// Wating a few seconds before replaying kommunernes-teknologispring-matrix-click video
+document.getElementById('kommunernesTeknologispringMatrixClickVideo').addEventListener('ended', replayAfterXSeconds, false);
+function replayAfterXSeconds(e) {
+  console.log('ended');
+  setTimeout(function () {
+    document.getElementById('kommunernesTeknologispringMatrixClickVideo').play();
+  }, 1500);
+}
+
 },{}]},{},[1]);
