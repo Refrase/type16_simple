@@ -71,6 +71,25 @@ module.exports = function(grunt) {
       }
     }
 
+    chokidar: {
+      options: { livereload: true },
+      scripts: {
+        files: [ 'src/scripts/**/*.js' ],
+        tasks: [ 'browserify' ],
+        options: {
+          spawn: false,
+          interrupt: true
+        }
+      },
+      css: {
+        files: [ 'src/styles/**/*.scss' ],
+        tasks: [ 'sass:dev', 'autoprefixer' ],
+      },
+      livereload: {
+        files: [ '*.html', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}' ]
+      }
+    }
+
   });
 
   // 2. Load plugins
@@ -78,10 +97,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( 'grunt-express' );
   grunt.loadNpmTasks( 'grunt-sass' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' ); // Runs on command 'grunt watch'
+  grunt.loadNpmTasks( 'grunt-chokidar' ); // Faster alternative to watch task
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
 
   // 3. Register task(s)
-  grunt.registerTask( 'serve', [ 'express', 'watch' ]); // Runs on command 'grunt serve'
+  grunt.registerTask( 'serve', [ 'express', 'chokidar' ]); // Runs also on command 'grunt' as it is set to default
   grunt.registerTask( 'uglify', [ 'sass:dev', 'autoprefixer' ]); // Runs on command 'grunt uglify'
   grunt.registerTask( 'build', [ 'sass:build', 'autoprefixer', 'browserify' ]); // Runs on command 'grunt build'
 };
