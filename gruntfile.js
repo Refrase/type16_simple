@@ -69,7 +69,7 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
-    }
+    },
 
     chokidar: {
       options: { livereload: true },
