@@ -1,0 +1,31 @@
+@keyframes drawStroke {
+  0%   { stroke-dashoffset: 55000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes drawStrokeExpand {
+  0%   { stroke-dasharray: 0; stroke-dashoffset: 20000; }
+  100% { stroke-dasharray: 20000; stroke-dashoffset: 0; }
+}
+
+.faceIllustration {
+  position: absolute;
+  top: -80px;
+  @include breakpoint( 'tablet' ) { top: -40px; }
+  @include breakpoint( 'tablet' ) { top: 0; }
+  right: 0px;
+  height: 500px;
+  @include breakpoint( 'widescreen' ) { right: 100px; }
+  @include breakpoint( 'tablet' ) { height: 250px; right: 30px; }
+  @include breakpoint( 'mobile' ) { height: 150px; }
+  z-index: -1;
+  fill: none;
+  stroke: #ddd;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+
+  animation: drawStrokeExpand 50s cubic-bezier(.25,.75,.25,1) infinite alternate;
+}
